@@ -1,0 +1,7 @@
+vim.lsp.enable("lua_ls")
+vim.lsp.enable("ts_ls")
+vim.lsp.enable("emmet_language_server")
+vim.lsp.enable("jdtls")
+vim.lsp.enable("html")
+vim.lsp.enable("pyright")
+vim.lsp.enable("sqlls")
