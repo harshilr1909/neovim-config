@@ -6,7 +6,7 @@ return {
             "nvim-treesitter/nvim-treesitter-textobjects",
         },
         config = function()
-            local configs = require("nvim-treesitter.configs")
+            local configs = require("nvim-treesitter.config")
             ---@diagnostic disable-next-line: missing-fields
             configs.setup({
                 textobjects = {
@@ -25,8 +25,7 @@ return {
                 },
                 -- enable indentation
                 indent = { enable = true },
-                -- enable autotagging (w/ nvim-ts-autotag plugin)
-                autotag = { enable = true },
+
                 -- ensure these language parsers are installed
                 ensure_installed = {
                     "json",

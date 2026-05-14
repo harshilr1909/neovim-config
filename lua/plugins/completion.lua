@@ -33,10 +33,8 @@ return {
 
 
             cmp.setup({
-
-
+                enabled = function() return vim.bo.filetype ~= "netrw" end,
                 preselect = cmp.PreselectMode.Item, -- <— preselect first item
-
 
                 completion = { completeopt = "menu,menuone,noinsert" },
 
