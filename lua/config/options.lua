@@ -10,8 +10,6 @@ vim.opt.encoding = "utf-8"
 vim.scriptencoding = "utf-8"
 
 -- Netrw settings
-vim.g.netrw_banner = 0         -- Hide the banner
-vim.g.netrw_liststyle = 3      -- Tree view (more stable for some)
 vim.g.netrw_browse_split = 0   -- Open files in the same window
 vim.g.netrw_winsize = 25       -- Initial window size
 vim.g.netrw_altv = 1           -- Open splits to the right
