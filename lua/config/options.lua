@@ -2,6 +2,7 @@ vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.cursorline = true
 vim.opt.termguicolors = true
+vim.opt.guifont = "CaskaydiaCove Nerd Font:h14"
 vim.api.nvim_set_hl(0,"CursorLine",{bg = "#222222"})
 vim.opt.shiftwidth = 4
 
