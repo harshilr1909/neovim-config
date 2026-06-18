@@ -1,4 +1,25 @@
 return {
+    -- Snippet Engine
+  {
+    "L3MON4D3/LuaSnip",
+    dependencies = {
+      -- VS Code style snippets library
+      "rafamadriz/friendly-snippets",
+      -- Autocomplete integration
+      "saadparwaiz1/cmp_luasnip",
+    },
+    config = function()
+      local luasnip = require("luasnip")
+      
+      -- Load VS Code snippets (including friendly-snippets and custom JSON templates)
+      require("luasnip.loaders.from_vscode").lazy_load()
+      
+      -- Extend React snippets to work in plain JS/TS files besides JSX/TSX
+      luasnip.filetype_extend("javascript", { "javascriptreact" })
+      luasnip.filetype_extend("typescript", { "typescriptreact" })
+    end,
+  },
+
 
 
     {
