@@ -116,6 +116,8 @@ return {
 
                     { name = "path" },
 
+                    { name = "luasnip" },
+
 
                     { name = "buffer",  keyword_length = 3 },
 
