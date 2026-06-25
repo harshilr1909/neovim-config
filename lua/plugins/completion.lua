@@ -2,6 +2,7 @@ return {
     -- Snippet Engine
   {
     "L3MON4D3/LuaSnip",
+    enabled=false,
     dependencies = {
       -- VS Code style snippets library
       "rafamadriz/friendly-snippets",

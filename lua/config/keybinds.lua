@@ -6,7 +6,14 @@ vim.keymap.set("n","<C-u>","<C-u>zz",{silent = true, noremap = true})
 vim.keymap.set("n","<C-d>","<C-d>zz",{silent = true, noremap = true})
 vim.diagnostic.config({
   virtual_text = true,
-  signs = true,
   underline = true,
   update_in_insert = false,
+  signs = {
+    text = {
+      [vim.diagnostic.severity.ERROR] = "",
+      [vim.diagnostic.severity.WARN]  = "",
+      [vim.diagnostic.severity.INFO]  = "",
+      [vim.diagnostic.severity.HINT]  = "",
+    },
+  },
 })
