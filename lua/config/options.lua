@@ -20,6 +20,32 @@ vim.o.timeout = true
 vim.o.timeoutlen = 300
 vim.o.ttimeoutlen = 10
 
+-- Workaround: guard vim.snippet autocommands against nil _session (Neovim core bug)
+-- Ref: vim/snippet.lua - "attempt to index field '_session' (a nil value)"
+local snippet_group_id = vim.api.nvim_create_augroup('nvim.snippet', { clear = false })
+local original_create_autocmd = vim.api.nvim_create_autocmd
+vim.api.nvim_create_autocmd = function(event, opts)
+    if opts and (opts.group == snippet_group_id or opts.desc == 'Update snippet state when the cursor moves' or opts.desc == 'Update active tabstops when buffer text changes') then
+        local original_callback = opts.callback
+        if type(original_callback) == 'function' then
+            opts.callback = function(...)
+                if not vim.snippet or not vim.snippet._session then
+                    return true -- deletes the autocommand automatically
+                end
+                local success, result = pcall(original_callback, ...)
+                if not success then
+                    if result and string.find(result, "_session") then
+                        return true
+                    end
+                    error(result)
+                end
+                return result
+            end
+        end
+    end
+    return original_create_autocmd(event, opts)
+end
+
 -- Fix for Neovim 0.12 double trigger on Enter/Backspace in Alacritty
 vim.api.nvim_create_autocmd("VimEnter", {
     callback = function()

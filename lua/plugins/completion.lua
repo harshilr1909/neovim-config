@@ -63,6 +63,12 @@ return {
 
                 window = { documentation = cmp.config.window.bordered() },
 
+                snippet = {
+                    expand = function(args)
+                        vim.snippet.expand(args.body)
+                    end,
+                },
+
 
                 mapping = cmp.mapping.preset.insert({
 
@@ -116,8 +122,6 @@ return {
 
 
                     { name = "path" },
-
-                    { name = "luasnip" },
 
 
                     { name = "buffer",  keyword_length = 3 },

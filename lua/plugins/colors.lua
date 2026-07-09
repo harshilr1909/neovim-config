@@ -4,9 +4,9 @@ local function enable_transparency()
 end
 return {
     {
-        "folke/tokyonight.nvim",
+        "rose-pine/nvim",
         config = function()
-            vim.cmd.colorscheme "tokyonight-night"
+            vim.cmd.colorscheme "rose-pine-main"
 	    enable_transparency()
         end
     },
@@ -16,7 +16,7 @@ return {
 	    "nvim-tree/nvim-web-devicons",
 	},
 	opts = {
-	    theme = 'tokyonight',
+	    theme = 'rose-pine',
 	}
     }
 }
